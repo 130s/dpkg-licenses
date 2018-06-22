@@ -44,9 +44,10 @@ if [[ $CSV -eq 1 ]]
 then 
   printf "\"St\",\"Name\",\"Version\",\"Arch\",\"Description\",\"Licenses\"\n"
 else 
-  format='%-2s  %-30s %-30s %-6s %-60s %s\n'
-  printf "$format" "St" "Name" "Version" "Arch" "Description" "Licenses"
-  printf "$format" "--" "----" "-------" "----" "-----------" "--------"
+  #format='%-2s  %-30s %-30s %-6s %-60s %s\n'
+  format='%-2s;%-30s;%-30s;%-6s;%-60s;%s\n'
+  #printf "$format" "St" "Name" "Version" "Arch" "Description" "Licenses"
+  #printf "$format" "--" "----" "-------" "----" "-----------" "--------"
 fi
 
 COLUMNS=2000 dpkg -l | grep '^.[iufhwt]' | while read pState package pVer pArch pDesc; do
